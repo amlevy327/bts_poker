@@ -1,6 +1,6 @@
 class Hand
   attr_reader :cards
-  
+
   $HAND_RANK = %w(
     royal_flush
     straight_flush
@@ -79,7 +79,6 @@ class Hand
   # rank pattern: 3 of one rank, 1 of other rank, 1 of other rank
   # suit pattern: n/a
   def three_of_a_kind?
-    # TODO: check this
     return hash_of_rank_count.values.sort == [1,1,3]
   end
 

@@ -4,8 +4,8 @@ require 'hand_class'
 describe Hand do
   context 'initialization' do
     it 'sorts hand' do
-      new_hand = Hand.new([CARD_JC, CARD_AC, CARD_QC, CARD_10C, CARD_KC])
-      expect(new_hand.cards).to eq([CARD_10C, CARD_JC, CARD_QC, CARD_KC, CARD_AC])
+      new_hand = Hand.new([CARD_JC, CARD_7C, CARD_QC, CARD_10C, CARD_KC])
+      expect(new_hand.cards).to eq([CARD_7C, CARD_10C, CARD_JC, CARD_QC, CARD_KC])
     end
   end
 
@@ -16,12 +16,7 @@ describe Hand do
       expect(new_hand.hash_of_rank_count['J']).to eq(1)
       expect(new_hand.hash_of_rank_count['A']).to eq(1)
     end
-
-    it 'identifies royal flush' do
-      new_hand = Hand.new([CARD_JC, CARD_AC, CARD_QC, CARD_10C, CARD_KC])
-      expect(new_hand.royal_flush?).to eq(true)
-    end
-
+    
     it 'identifies straight flush' do
       new_hand = Hand.new([CARD_JC, CARD_9C, CARD_KC, CARD_10C, CARD_QC])
       expect(new_hand.straight_flush?).to eq(true)

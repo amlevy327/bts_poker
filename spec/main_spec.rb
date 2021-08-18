@@ -3,10 +3,6 @@ require 'main'
 
 describe 'main' do
   context 'check and analyze user input' do
-    it 'identifies royal flush' do
-      expect(check_user_input(ROYAL_FLUSH)).to eq(['Royal Flush', 10])
-    end
-
     it 'identifies straight flush' do
       expect(check_user_input(STRAIGHT_FLUSH)).to eq(['Straight Flush', 9])
     end
@@ -40,7 +36,7 @@ describe 'main' do
     end
 
     it 'identifies high card' do
-      expect(check_user_input(HIGH_CARD)).to eq(['High Card', 1, "AC"])
+      expect(check_user_input(HIGH_CARD)).to eq(['High Card', 1, "10D"])
     end
   end
 end

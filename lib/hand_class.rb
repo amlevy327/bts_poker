@@ -1,8 +1,9 @@
 class Hand
   attr_reader :cards
 
-  $HAND_RANK = %w(
-    royal_flush
+  # This feels wrong (I think there should be a royal flush), but is how it was listed in the spec
+  # hash table of name to score
+  $HAND_SCORES = %w(
     straight_flush
     four_of_a_kind
     full_house
@@ -31,15 +32,7 @@ class Hand
     end
     return @rank_count
   end
-
-  # example hand: 10S JS QS KS AS
-  # rank pattern: 10, J, Q, K, A (exact 5 in a row)
-  # suit pattern: 5 of same suit (flush)
-  def royal_flush?
-    required_straight = @cards[0].rank == '10' && @cards[1].rank == 'J' && @cards[2].rank == 'Q' && @cards[3].rank == 'K' && @cards[4].rank == 'A'
-    return flush? && required_straight
-  end
-
+  
   # example hand: 2D 3D 4D 5D 6D
   # rank pattern: 5 in a row (straight)
   # suit pattern: 5 of same suit (flush)
